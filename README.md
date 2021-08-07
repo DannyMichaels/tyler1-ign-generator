@@ -10,6 +10,7 @@ website: https://tyler1-ign-generator.netlify.app/
 - followed by a random sequence of numbers
 - max words are 2.
 - the words are combined with no spaces between
+ <br />
   example: `HULKSMASH1337`
 # solution
 
