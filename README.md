@@ -13,7 +13,7 @@ website: https://tyler1-ign-generator.netlify.app/
 
 # solution
 
-- find an api that contains a decent amount of words
+- find or make an api that contains a decent amount of words, can also just make an array of words.
 - make a function that takes an array and returns a random element (inspired by Ruby's `sample`)
 - get 2 random words from the array, make them upper case with no spaces.
 - have the user enter a number.
