@@ -39,7 +39,6 @@ function App() {
 
     if (enterNumsForMe) {
       const randomNum = getRandomInt(56, 1337);
-      console.log({ randomNum });
       setIgn(resultWord + randomNum);
     } else {
       setIgn(resultWord + manuallyEnteredNumbers);
