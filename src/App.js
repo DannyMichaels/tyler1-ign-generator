@@ -6,10 +6,18 @@ import './App.css';
 
 const sample = (array) => array[Math.floor(Math.random() * array.length)];
 
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 function App() {
   const [words, setWords] = useState([]);
   const [error, setError] = useState(false);
-  const [numbers, setNumbers] = useState('');
+  const [manuallyEnteredNumbers, setManuallyEnteredNumbers] = useState('');
+  const [enterNumsForMe, setEnterNumsForMe] = useState(true);
   const [ign, setIgn] = useState('');
 
   const api = new Api();
@@ -29,9 +37,20 @@ function App() {
     const randomWordTwo = sample(words);
     const resultWord = (randomWordOne + randomWordTwo).toUpperCase();
 
-    setIgn(resultWord + numbers);
+    if (enterNumsForMe) {
+      const randomNum = getRandomInt(56, 1337);
+      console.log({ randomNum });
+      setIgn(resultWord + randomNum);
+    } else {
+      setIgn(resultWord + manuallyEnteredNumbers);
+    }
 
-    setNumbers('');
+    setManuallyEnteredNumbers('');
+  };
+
+  const handleReset = () => {
+    setIgn('');
+    setManuallyEnteredNumbers('');
   };
 
   return (
@@ -43,20 +62,50 @@ function App() {
         {!error ? (
           <form onSubmit={handleCreateIgn}>
             <div>
-              <TextField
-                variant="filled"
-                style={{ background: '#fff' }}
-                placeholder="enter a number"
-                type="number"
-                required
-                value={numbers}
-                onChange={(e) => setNumbers(String(e.target.value))}
-              />
+              {!enterNumsForMe ? (
+                <TextField
+                  variant="filled"
+                  style={{ background: '#fff' }}
+                  placeholder="enter a number"
+                  type="number"
+                  required={enterNumsForMe === false}
+                  value={manuallyEnteredNumbers}
+                  onChange={(e) =>
+                    setManuallyEnteredNumbers(String(e.target.value))
+                  }
+                />
+              ) : null}
             </div>
             <br />
-            <Button type="submit" variant="contained" color="primary">
-              Generate IGN
-            </Button>
+            <div>
+              <Button
+                variant="contained"
+                color="secondary"
+                style={{ background: 'purple' }}
+                onClick={() => setEnterNumsForMe((prev) => !prev)}>
+                {!enterNumsForMe
+                  ? 'Enter the numbers for me.'
+                  : 'Enter numbers manually'}
+              </Button>
+            </div>
+            <br />
+            <div>
+              <Button type="submit" variant="contained" color="primary">
+                Generate IGN
+              </Button>
+
+              {ign ? (
+                <>
+                  &nbsp;&nbsp;
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    onClick={handleReset}>
+                    Reset
+                  </Button>
+                </>
+              ) : null}
+            </div>
           </form>
         ) : (
           <h1>sorry! something went wrong.</h1>
