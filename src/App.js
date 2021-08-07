@@ -19,10 +19,11 @@ function App() {
     e.preventDefault();
     const randomWordOne = sample(words);
     const randomWordTwo = sample(words);
-
     const resultWord = (randomWordOne + randomWordTwo).toUpperCase()
-    console.log({resultWord})
+    
     setIgn(resultWord + numbers)
+
+    setNumbers("")
   }
 
   return (
@@ -35,7 +36,9 @@ function App() {
          
           <input
             placeholder="enter a number"
-            type="number" onChange={(e) => setNumbers(String(e.target.value))}
+            type="number"
+            required
+            onChange={(e) => setNumbers(String(e.target.value))}
           />
         </div>
         <br />
