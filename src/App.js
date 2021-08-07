@@ -36,27 +36,19 @@ function App() {
   const handleCreateIgn = (e) => {
     e.preventDefault();
 
+    // let people always get names that they haven't seen unless they click reset.
+    const unvisitedWords = words.filter(
+      (word) => !visitedRandomWords.has(word)
+    );
+
+    let randomWordOne = sample(unvisitedWords),
+      randomWordTwo = sample(unvisitedWords);
+
     setVisitedRandomWords(
       (prevState) => new Set([...prevState, randomWordOne, randomWordTwo])
     );
 
-    let randomWordOne = sample(words),
-      randomWordTwo = sample(words);
-
-    // let people always get names that they haven't seen unless they click reset.
-    if (visitedRandomWords.has(randomWordOne)) {
-      while (visitedRandomWords.has(randomWordOne)) {
-        randomWordOne = sample(words);
-      }
-    }
-
-    if (visitedRandomWords.has(randomWordTwo)) {
-      while (visitedRandomWords.has(randomWordTwo)) {
-        randomWordTwo = sample(words);
-      }
-    }
-
-    const resultWord = (randomWordOne + randomWordTwo).toUpperCase();
+    const resultWord = `${randomWordOne}${randomWordTwo}`.toUpperCase();
 
     if (enterNumsForMe) {
       const randomNum = getRandomInt(56, 1337);
@@ -81,9 +73,13 @@ function App() {
         backgroundImage: showBackground ? `url(${BACKGROUND_IMG})` : '',
         minHeight: '100vh',
       }}>
-      <div className="centered">
-        <h1>tyler1 ign generator</h1>
-        {ign ? <h2>IGN: {ign}</h2> : null}
+      <div
+        className="centered"
+        style={{
+          background: showBackground ? 'rgba(255,255,255, 0.5)' : '',
+        }}>
+        <h1>Tyler1 IGN Generator</h1>
+        {ign ? <h2 className="show-ign">IGN: {ign}</h2> : null}
 
         {!error ? (
           <form onSubmit={handleCreateIgn}>
