@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +69,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+=======
+# tyler1-ign-generator
+A Front-End react app that generates a tyler1 (twitch streamer) inspired IGN.
+
+# what makes a tyler1 ign?
+- all words capitalized
+- followed by a random sequence of numbers
+- max words are 2.
+- the words are combined with no spaces between
+>>>>>>> 3c6734df9c3b6d6a45ebe64a9006ee9628aebcfa
