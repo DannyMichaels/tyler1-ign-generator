@@ -1,12 +1,31 @@
 import { useEffect, useState } from 'react';
 import Api from './api';
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 import './App.css';
 import Home from './components/Home';
+import MyList from './components/MyList';
+import { Link, Route, Switch } from 'react-router-dom';
 
 const BACKGROUND_IMG = 'https://i.redd.it/9rlwdb2br9jz.png';
 
+function NavBar() {
+  return (
+    <div id="navbar">
+      <ul className="navbar-list">
+        <li>
+          <Button variant="contained" component={Link} to="/">
+            Home
+          </Button>
+        </li>
+        <li>
+          <Button variant="contained" component={Link} to="/my-list">
+            My List
+          </Button>
+        </li>
+      </ul>
+    </div>
+  );
+}
 function App() {
   const [words, setWords] = useState([]);
   const [error, setError] = useState(false);
@@ -28,7 +47,15 @@ function App() {
         backgroundImage: showBackground ? `url(${BACKGROUND_IMG})` : '',
         minHeight: '100vh',
       }}>
-      <Home words={words} error={error} showBackground={showBackground} />
+      <NavBar />
+      <Switch>
+        <Route exact path="/">
+          <Home words={words} error={error} showBackground={showBackground} />
+        </Route>
+        <Route path="/my-list">
+          <MyList />
+        </Route>
+      </Switch>
 
       <footer>
         <a

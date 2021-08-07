@@ -56,3 +56,19 @@ footer > a:hover {
   width: 100%;
   font-size: 1.1rem;
 }
+
+#navbar {
+  position: fixed;
+  top: 0;
+  padding: 20px;
+  background-color: blue;
+  width: 100%;
+}
+
+.navbar-list {
+  display: flex;
+}
+.navbar-list > li {
+  list-style-type: none;
+  margin-right: 20px;
+}

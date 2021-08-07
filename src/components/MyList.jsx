@@ -1,3 +1,3 @@
 export default function MyList() {
-  return <>mylist</>;
+  return <>MY LIST</>;
 }
