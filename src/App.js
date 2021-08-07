@@ -4,28 +4,11 @@ import Button from '@material-ui/core/Button';
 import './App.css';
 import Home from './components/Home';
 import MyList from './components/MyList';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import NavBar from './components/NavBar';
 
 const BACKGROUND_IMG = 'https://i.redd.it/9rlwdb2br9jz.png';
 
-function NavBar() {
-  return (
-    <div id="navbar">
-      <ul className="navbar-list">
-        <li>
-          <Button variant="contained" component={Link} to="/">
-            Home
-          </Button>
-        </li>
-        <li>
-          <Button variant="contained" component={Link} to="/my-list">
-            My List
-          </Button>
-        </li>
-      </ul>
-    </div>
-  );
-}
 function App() {
   const [words, setWords] = useState([]);
   const [error, setError] = useState(false);
@@ -48,6 +31,7 @@ function App() {
         minHeight: '100vh',
       }}>
       <NavBar />
+
       <Switch>
         <Route exact path="/">
           <Home words={words} error={error} showBackground={showBackground} />

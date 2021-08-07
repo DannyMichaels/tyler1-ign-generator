@@ -72,3 +72,13 @@ footer > a:hover {
   list-style-type: none;
   margin-right: 20px;
 }
+
+.nav-link {
+  color: white;
+  transition: transform 250ms ease-in-out;
+  display: inline-block;
+}
+
+.nav-link:hover {
+  transform: scale(1.06);
+}
