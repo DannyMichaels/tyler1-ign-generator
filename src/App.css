@@ -20,6 +20,9 @@ footer {
   position: absolute;
   bottom: 0;
   padding: 20px;
+  display: flex;
+  width: 100vw;
+  justify-content: space-between;
 }
 
 footer > a {
@@ -34,4 +37,8 @@ footer > a:hover {
   transform: scale(1.04);
   transition: transform 250ms ease-in-out;
   text-decoration: underline;
+}
+
+.toggle-bg-btn {
+  margin-right: 50px !important;
 }
