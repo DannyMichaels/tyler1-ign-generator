@@ -1,4 +1,7 @@
-export default function MyList({ showBackground, listItems }) {
+import Button from '@material-ui/core/button';
+import DeleteIcon from '@material-ui/icons/DeleteForever';
+
+export default function MyList({ showBackground, listItems, removeFromList }) {
   return (
     <div
       className="centered"
@@ -7,11 +10,25 @@ export default function MyList({ showBackground, listItems }) {
       }}>
       <h1>My List:</h1>
       <ul className="mylist-ul">
-        {listItems.map((ign, key) => (
-          <li style={{ textAlign: 'left' }} key={key}>
-            {ign}
-          </li>
-        ))}
+        {listItems.length > 0 ? (
+          listItems.map((ign, index) => (
+            <li key={index}>
+              <div>{ign}</div>
+
+              <div>
+                <Button
+                  color="secondary"
+                  variant="contained"
+                  onClick={() => removeFromList(index)}>
+                  <DeleteIcon />
+                  remove from list
+                </Button>
+              </div>
+            </li>
+          ))
+        ) : (
+          <h1>No IGNs added!</h1>
+        )}
       </ul>
     </div>
   );

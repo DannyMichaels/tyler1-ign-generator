@@ -68,6 +68,7 @@ footer > a:hover {
 .navbar-list {
   display: flex;
 }
+
 .navbar-list > li {
   list-style-type: none;
   margin-right: 20px;
@@ -97,4 +98,11 @@ footer > a:hover {
   max-height: 200px;
   border: 1px solid #999;
   padding: 20px;
+}
+
+.mylist-ul > li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  align-items: center;
 }

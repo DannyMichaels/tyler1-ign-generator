@@ -67,7 +67,15 @@ function App() {
           )}
         </Route>
         <Route path="/my-list">
-          <MyList listItems={list} showBackground={showBackground} />
+          <MyList
+            listItems={list}
+            showBackground={showBackground}
+            removeFromList={(itemToRemoveIndex) =>
+              setList((prevState) =>
+                prevState.filter((_item, index) => index !== itemToRemoveIndex)
+              )
+            }
+          />
         </Route>
       </Switch>
 
