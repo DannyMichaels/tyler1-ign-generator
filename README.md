@@ -2,6 +2,8 @@
 
 A Front-End react app that generates a tyler1 (twitch streamer) inspired IGN.
 
+website: https://tyler1-ign-generator.netlify.app/
+
 # what makes a tyler1 ign?
 
 - all words capitalized
