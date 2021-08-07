@@ -108,7 +108,7 @@ function App() {
                 style={{ background: 'purple' }}
                 onClick={() => setEnterNumsManually((prevState) => !prevState)}>
                 {enterNumsManually
-                  ? 'Enter the numbers for me.'
+                  ? 'Enter the numbers for me'
                   : 'Enter numbers manually'}
               </Button>
             </div>
