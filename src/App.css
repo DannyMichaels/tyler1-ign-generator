@@ -21,3 +21,17 @@ footer {
   bottom: 0;
   padding: 20px;
 }
+
+footer > a {
+  font-size: 1.3rem;
+  color: white;
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 250ms ease-in-out;
+}
+
+footer > a:hover {
+  transform: scale(1.04);
+  transition: transform 250ms ease-in-out;
+  text-decoration: underline;
+}
