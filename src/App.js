@@ -18,11 +18,11 @@ const getRandomInt = (min, max) => {
 function App() {
   const [words, setWords] = useState([]);
   const [error, setError] = useState(false);
+  const [ign, setIgn] = useState('');
   const [manuallyEnteredNumbers, setManuallyEnteredNumbers] = useState('');
   const [enterNumsManually, setEnterNumsManually] = useState(false);
-  const [ign, setIgn] = useState('');
-  const [visitedRandomWords, setVisitedRandomWords] = useState(new Set()); // get unique generated IGNS to avoid boredom
   const [showBackground, setShowBackground] = useState(true);
+  const [visitedRandomWords, setVisitedRandomWords] = useState(new Set()); // get unique generated IGNS to avoid boredom
 
   useEffect(() => {
     const api = new Api();
