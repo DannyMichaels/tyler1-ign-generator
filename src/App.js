@@ -19,7 +19,7 @@ function App() {
   const [words, setWords] = useState([]);
   const [error, setError] = useState(false);
   const [manuallyEnteredNumbers, setManuallyEnteredNumbers] = useState('');
-  const [enterNumsForMe, setEnterNumsForMe] = useState(true);
+  const [enterNumsManually, setEnterNumsManually] = useState(false);
   const [ign, setIgn] = useState('');
   const [visitedRandomWords, setVisitedRandomWords] = useState(new Set()); // get unique generated IGNS to avoid boredom
   const [showBackground, setShowBackground] = useState(true);
@@ -50,14 +50,13 @@ function App() {
 
     const resultWord = `${randomWordOne}${randomWordTwo}`.toUpperCase();
 
-    if (enterNumsForMe) {
+    if (enterNumsManually) {
+      setIgn(resultWord + manuallyEnteredNumbers);
+      setManuallyEnteredNumbers('');
+    } else {
       const randomNum = getRandomInt(56, 1337);
       setIgn(resultWord + randomNum);
-    } else {
-      setIgn(resultWord + manuallyEnteredNumbers);
     }
-
-    setManuallyEnteredNumbers('');
   };
 
   const handleReset = () => {
@@ -84,13 +83,13 @@ function App() {
         {!error ? (
           <form onSubmit={handleCreateIgn}>
             <div>
-              {!enterNumsForMe ? (
+              {enterNumsManually ? (
                 <TextField
                   variant="filled"
                   style={{ background: '#fff' }}
                   placeholder="enter a number"
                   type="number"
-                  required={enterNumsForMe === false}
+                  required={enterNumsManually}
                   value={manuallyEnteredNumbers}
                   onChange={(e) => {
                     // allow 4 max characters to be entered (using slice), maxLength doesn't work on input type number
@@ -107,8 +106,8 @@ function App() {
                 variant="contained"
                 color="secondary"
                 style={{ background: 'purple' }}
-                onClick={() => setEnterNumsForMe((prevState) => !prevState)}>
-                {!enterNumsForMe
+                onClick={() => setEnterNumsManually((prevState) => !prevState)}>
+                {enterNumsManually
                   ? 'Enter the numbers for me.'
                   : 'Enter numbers manually'}
               </Button>
