@@ -21,4 +21,6 @@ website: https://tyler1-ign-generator.netlify.app/
 - join the words and the number.
 
 # bonus
+
 - added a feature where the user can enter a numbers to add to the name.
+- added a feature where randomly generated words cannot be repeated (if ever, it's rare anyways) unless user clicks "reset".
