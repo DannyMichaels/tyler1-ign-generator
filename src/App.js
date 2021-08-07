@@ -13,15 +13,25 @@ function App() {
   const [words, setWords] = useState([]);
   const [error, setError] = useState(false);
   const [showBackground, setShowBackground] = useState(true);
+  const [list, setList] = useState(() => {
+    let storedList = localStorage.getItem('tyler1-ign-list');
+    if (storedList) {
+      return JSON.parse(storedList);
+    }
+    return [];
+  });
 
   useEffect(() => {
     const api = new Api();
-
     api
       .getAllWords()
       .then((result) => setWords(result))
       .catch((_err) => setError(true));
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem('tyler1-ign-list', JSON.stringify(list));
+  }, [list]);
 
   return (
     <div
@@ -34,10 +44,17 @@ function App() {
 
       <Switch>
         <Route exact path="/">
-          <Home words={words} error={error} showBackground={showBackground} />
+          <Home
+            words={words}
+            error={error}
+            showBackground={showBackground}
+            addToList={(addedIgn) =>
+              setList((prevState) => [...prevState, addedIgn])
+            }
+          />
         </Route>
         <Route path="/my-list">
-          <MyList />
+          <MyList listItems={list} />
         </Route>
       </Switch>
 
