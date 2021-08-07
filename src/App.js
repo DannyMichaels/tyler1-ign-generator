@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import axios from 'axios';
 
 function App() {
+  const API_URL = (numberOfWords) => `https://random-word-api.herokuapp.com/word?number=${numberOfWords}`
+  const [words, setWords] = useState([])
+  const [ign, setIgn] = useState('');
+
+  useEffect(() => {
+    axios.get(API_URL(1000)).then(({data}) => setWords(data))
+  }, [])
+  
+  const handleCreateIgn = () => {
+    setIgn(prev => prev)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {words.map((w) => <h1>{w}</h1>)}
+
+      <button onClick={handleCreateIgn}>Generate IGN</button>
     </div>
   );
 }
