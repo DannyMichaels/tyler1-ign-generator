@@ -10,7 +10,7 @@ website: https://tyler1-ign-generator.netlify.app/
 - followed by a random sequence of numbers
 - max words are 2.
 - the words are combined with no spaces between
-  example: [https://na.op.gg/summoner/userName=hulksmash+1337]HULKSMASH1337
+  example: `HULKSMASH1337`
 # solution
 
 - find or make an api that contains a decent amount of words, can also just make an array of words.
