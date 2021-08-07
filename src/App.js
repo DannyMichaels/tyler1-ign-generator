@@ -110,6 +110,15 @@ function App() {
           <h1>sorry! something went wrong.</h1>
         )}
       </div>
+
+      <footer>
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://github.com/DannyMichaels/tyler1-ign-generator">
+          source code
+        </a>
+      </footer>
     </div>
   );
 }
