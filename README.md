@@ -24,3 +24,4 @@ website: https://tyler1-ign-generator.netlify.app/
 
 - added a feature where the user can enter a numbers to add to the name.
 - added a feature where randomly generated words cannot be repeated (if ever, it's rare anyways) unless user clicks "reset".
+- added a feature where a user can save an IGN to his own list (stored in local storage).
