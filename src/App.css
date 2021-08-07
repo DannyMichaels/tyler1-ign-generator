@@ -56,9 +56,3 @@ footer > a:hover {
   width: 100%;
   font-size: 1.1rem;
 }
-
-@media screen and (max-width: 900px) {
-  .show-ign {
-    overflow-wrap: break-word;
-  }
-}
