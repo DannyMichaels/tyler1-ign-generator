@@ -92,9 +92,12 @@ function App() {
                   type="number"
                   required={enterNumsForMe === false}
                   value={manuallyEnteredNumbers}
-                  onChange={(e) =>
-                    setManuallyEnteredNumbers(String(e.target.value))
-                  }
+                  onChange={(e) => {
+                    // allow 4 max characters to be entered (using slice), maxLength doesn't work on input type number
+                    setManuallyEnteredNumbers(
+                      Math.max(0, Number(e.target.value)).toString().slice(0, 4)
+                    );
+                  }}
                 />
               ) : null}
             </div>
