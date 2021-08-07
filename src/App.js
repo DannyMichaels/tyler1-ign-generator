@@ -6,6 +6,7 @@ import Home from './components/Home';
 import MyList from './components/MyList';
 import { Route, Switch } from 'react-router-dom';
 import NavBar from './components/NavBar';
+import { CircularProgress } from '@material-ui/core';
 
 const BACKGROUND_IMG = 'https://i.redd.it/9rlwdb2br9jz.png';
 
@@ -44,14 +45,24 @@ function App() {
 
       <Switch>
         <Route exact path="/">
-          <Home
-            words={words}
-            error={error}
-            showBackground={showBackground}
-            addToList={(addedIgn) =>
-              setList((prevState) => [...prevState, addedIgn])
-            }
-          />
+          {words.length > 0 ? (
+            <Home
+              words={words}
+              error={error}
+              showBackground={showBackground}
+              addToList={(addedIgn) =>
+                setList((prevState) => [...prevState, addedIgn])
+              }
+            />
+          ) : (
+            <div
+              className="centered"
+              style={{ background: 'rgba(255,255,255, 0.5)' }}>
+              <h1>Tyler1 IGN Generator</h1>
+              <h2>loading...</h2>
+              <CircularProgress style={{ width: '30px' }} />
+            </div>
+          )}
         </Route>
         <Route path="/my-list">
           <MyList listItems={list} />
