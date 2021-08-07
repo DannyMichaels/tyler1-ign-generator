@@ -11,7 +11,7 @@ website: https://tyler1-ign-generator.netlify.app/
 - max words are 2.
 - the words are combined with no spaces between
 - example: `HULKSMASH1337`
-- 
+
 # solution
 
 - find or make an api that contains a decent amount of words, can also just make an array of words.
