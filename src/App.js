@@ -19,22 +19,40 @@ function App() {
   const [manuallyEnteredNumbers, setManuallyEnteredNumbers] = useState('');
   const [enterNumsForMe, setEnterNumsForMe] = useState(true);
   const [ign, setIgn] = useState('');
-
-  const api = new Api();
+  const [visitedRandomWords, setVisitedRandomWords] = useState(new Set()); // get unique generated IGNS to avoid boredom
 
   useEffect(() => {
+    const api = new Api();
+
     api
       .getAllWords()
       .then((result) => setWords(result))
       .catch((_err) => setError(true));
-
-    // eslint-disable-next-line
   }, []);
 
   const handleCreateIgn = (e) => {
     e.preventDefault();
-    const randomWordOne = sample(words);
-    const randomWordTwo = sample(words);
+
+    setVisitedRandomWords(
+      (prevState) => new Set([...prevState, randomWordOne, randomWordTwo])
+    );
+
+    let randomWordOne = sample(words),
+      randomWordTwo = sample(words);
+
+    // let people always get names that they haven't seen unless they click reset.
+    if (visitedRandomWords.has(randomWordOne)) {
+      while (visitedRandomWords.has(randomWordOne)) {
+        randomWordOne = sample(words);
+      }
+    }
+
+    if (visitedRandomWords.has(randomWordTwo)) {
+      while (visitedRandomWords.has(randomWordTwo)) {
+        randomWordTwo = sample(words);
+      }
+    }
+
     const resultWord = (randomWordOne + randomWordTwo).toUpperCase();
 
     if (enterNumsForMe) {
@@ -50,6 +68,7 @@ function App() {
   const handleReset = () => {
     setIgn('');
     setManuallyEnteredNumbers('');
+    setVisitedRandomWords(new Set());
   };
 
   return (
@@ -81,7 +100,7 @@ function App() {
                 variant="contained"
                 color="secondary"
                 style={{ background: 'purple' }}
-                onClick={() => setEnterNumsForMe((prev) => !prev)}>
+                onClick={() => setEnterNumsForMe((prevState) => !prevState)}>
                 {!enterNumsForMe
                   ? 'Enter the numbers for me.'
                   : 'Enter numbers manually'}
