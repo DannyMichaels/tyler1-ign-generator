@@ -91,3 +91,10 @@ footer > a:hover {
   color: blue;
   text-decoration-color: blue;
 }
+
+.mylist-ul {
+  overflow-y: scroll;
+  max-height: 200px;
+  border: 1px solid #999;
+  padding: 20px;
+}

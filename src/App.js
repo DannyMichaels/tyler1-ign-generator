@@ -50,9 +50,11 @@ function App() {
               words={words}
               error={error}
               showBackground={showBackground}
-              addToList={(addedIgn) =>
-                setList((prevState) => [...prevState, addedIgn])
-              }
+              list={list}
+              addToList={(addedIgn) => {
+                if (list.find((ign) => ign === addedIgn)) return;
+                setList((prevState) => [...prevState, addedIgn]);
+              }}
             />
           ) : (
             <div
@@ -65,7 +67,7 @@ function App() {
           )}
         </Route>
         <Route path="/my-list">
-          <MyList listItems={list} />
+          <MyList listItems={list} showBackground={showBackground} />
         </Route>
       </Switch>
 

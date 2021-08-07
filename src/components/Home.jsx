@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import AddIcon from '@material-ui/icons/Add';
 
 const sample = (array) => array[Math.floor(Math.random() * array.length)];
 
@@ -11,7 +12,13 @@ const getRandomInt = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-export default function Home({ words, showBackground, error }) {
+export default function Home({
+  words,
+  showBackground,
+  error,
+  addToList,
+  list,
+}) {
   const [ign, setIgn] = useState('');
   const [manuallyEnteredNumbers, setManuallyEnteredNumbers] = useState('');
   const [enterNumsManually, setEnterNumsManually] = useState(false);
@@ -57,7 +64,21 @@ export default function Home({ words, showBackground, error }) {
           background: showBackground ? 'rgba(255,255,255, 0.5)' : '',
         }}>
         <h1>Tyler1 IGN Generator</h1>
-        {ign ? <h2 className="show-ign">IGN: {ign}</h2> : null}
+        {ign ? (
+          <>
+            <h2 className="show-ign">IGN: {ign}</h2>
+            {!list.find((item) => item === ign) ? (
+              <Button
+                onClick={() => addToList(ign)}
+                style={{ fontSize: '1.3rem', color: 'blue' }}>
+                <AddIcon />
+                &nbsp; Add To List
+              </Button>
+            ) : (
+              <h3>This IGN is in your list!</h3>
+            )}
+          </>
+        ) : null}
 
         {!error ? (
           <form onSubmit={handleCreateIgn}>
