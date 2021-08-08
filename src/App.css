@@ -117,9 +117,31 @@ footer {
   margin-left: 10px;
   display: inline-block;
   transition: transform 250ms ease-in-out;
+  cursor: pointer;
+  color: blue;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
 }
 
 .tweet-btn:hover {
+  transform: scale(1.04);
+  text-decoration: underline;
+}
+
+.add-to-list-btn {
+  font-size: 1rem;
+  color: blue;
+  cursor: pointer;
+  display: inline-block;
+  transition: transform 250ms ease-in-out;
+  text-decoration: none;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.add-to-list-btn:hover {
   transform: scale(1.04);
   text-decoration: underline;
 }

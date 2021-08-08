@@ -77,15 +77,17 @@ export default function Home({
                   flexWrap: 'wrap',
                   justifyContent: 'center',
                 }}>
-                <Button
-                  onClick={() => addToList(ign)}
-                  style={{ fontSize: '1.3rem', color: 'blue' }}>
+                <span
+                  className="add-to-list-btn"
+                  onClick={() => addToList(ign)}>
                   <AddIcon />
                   &nbsp; Add To List
-                </Button>
+                </span>
                 <a
                   className="tweet-btn"
-                  href={`https://twitter.com/intent/tweet?text=${tweetText}`}>
+                  href={`https://twitter.com/intent/tweet?text=${tweetText}`}
+                  target="_blank"
+                  rel="noreferrer">
                   <img
                     src="https://cdn1.iconfinder.com/data/icons/windev-contacts-2/512/twitter_button-512.png"
                     alt="tweet"
