@@ -80,21 +80,23 @@ function App() {
       </Switch>
 
       <footer>
-        <a
-          target="_blank"
-          rel="noreferrer"
-          style={!showBackground ? { color: 'black' } : {}}
-          href="https://github.com/DannyMichaels/tyler1-ign-generator">
-          source code
-        </a>
+        <div className="footer-content">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            style={!showBackground ? { color: 'black' } : {}}
+            href="https://github.com/DannyMichaels/tyler1-ign-generator">
+            source code
+          </a>
 
-        <Button
-          className="toggle-bg-btn"
-          color={showBackground ? 'secondary' : 'primary'}
-          variant="contained"
-          onClick={() => setShowBackground((prev) => !prev)}>
-          {showBackground ? 'Disable background' : 'Enable background'}
-        </Button>
+          <Button
+            className="toggle-bg-btn"
+            color={showBackground ? 'secondary' : 'primary'}
+            variant="contained"
+            onClick={() => setShowBackground((prev) => !prev)}>
+            {showBackground ? 'Disable background' : 'Enable background'}
+          </Button>
+        </div>
       </footer>
     </div>
   );
