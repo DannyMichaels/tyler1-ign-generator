@@ -56,6 +56,8 @@ export default function Home({
     setVisitedRandomWords(new Set());
   };
 
+  const tweetText = `I just used Tyler1 IGN Generator and got ${ign}!, try it at https://tyler1-ign-generator.netlify.app/`;
+
   return (
     <>
       <div
@@ -68,15 +70,34 @@ export default function Home({
           <>
             <h2 className="show-ign">IGN: {ign}</h2>
             {!list.find((item) => item === ign) ? (
-              <Button
-                onClick={() => addToList(ign)}
-                style={{ fontSize: '1.3rem', color: 'blue' }}>
-                <AddIcon />
-                &nbsp; Add To List
-              </Button>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  flexWrap: 'wrap',
+                  justifyContent: 'center',
+                }}>
+                <Button
+                  onClick={() => addToList(ign)}
+                  style={{ fontSize: '1.3rem', color: 'blue' }}>
+                  <AddIcon />
+                  &nbsp; Add To List
+                </Button>
+                <a
+                  className="tweet-btn"
+                  href={`https://twitter.com/intent/tweet?text=${tweetText}`}>
+                  <img
+                    src="https://cdn1.iconfinder.com/data/icons/windev-contacts-2/512/twitter_button-512.png"
+                    alt="tweet"
+                    width="20px"
+                  />
+                  Tweet
+                </a>
+              </div>
             ) : (
               <h3>This IGN is in your list!</h3>
             )}
+            <br />
           </>
         ) : null}
 

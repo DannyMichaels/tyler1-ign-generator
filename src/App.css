@@ -111,3 +111,15 @@ footer {
   margin-bottom: 20px;
   align-items: center;
 }
+
+.tweet-btn {
+  text-decoration: none;
+  margin-left: 10px;
+  display: inline-block;
+  transition: transform 250ms ease-in-out;
+}
+
+.tweet-btn:hover {
+  transform: scale(1.04);
+  text-decoration: underline;
+}
