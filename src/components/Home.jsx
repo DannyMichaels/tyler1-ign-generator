@@ -69,36 +69,32 @@ export default function Home({
         {ign ? (
           <>
             <h2 className="show-ign">IGN: {ign}</h2>
-            {!list.find((item) => item === ign) ? (
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  flexWrap: 'wrap',
-                  justifyContent: 'center',
-                }}>
-                <span
-                  className="add-to-list-btn"
-                  onClick={() => addToList(ign)}>
-                  <AddIcon />
-                  &nbsp; Add To List
-                </span>
-                <a
-                  className="tweet-btn"
-                  href={`https://twitter.com/intent/tweet?text=${tweetText}`}
-                  target="_blank"
-                  rel="noreferrer">
-                  <img
-                    src="https://cdn1.iconfinder.com/data/icons/windev-contacts-2/512/twitter_button-512.png"
-                    alt="tweet"
-                    width="20px"
-                  />
-                  Tweet
-                </a>
-              </div>
-            ) : (
-              <h3>This IGN is in your list!</h3>
-            )}
+            <div className="centered-content">
+              {!list.find((item) => item === ign) ? (
+                <>
+                  <span
+                    className="add-to-list-btn"
+                    onClick={() => addToList(ign)}>
+                    <AddIcon />
+                    &nbsp; Add To List
+                  </span>
+                </>
+              ) : (
+                <h3>This IGN is in your list!</h3>
+              )}
+              <a
+                className="tweet-btn"
+                href={`https://twitter.com/intent/tweet?text=${tweetText}`}
+                target="_blank"
+                rel="noreferrer">
+                <img
+                  src="https://cdn1.iconfinder.com/data/icons/windev-contacts-2/512/twitter_button-512.png"
+                  alt="tweet"
+                  width="20px"
+                />
+                Tweet
+              </a>
+            </div>
             <br />
           </>
         ) : null}

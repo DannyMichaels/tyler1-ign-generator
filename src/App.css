@@ -145,3 +145,10 @@ footer {
   transform: scale(1.04);
   text-decoration: underline;
 }
+
+.centered-content {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
