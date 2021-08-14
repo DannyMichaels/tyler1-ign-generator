@@ -3,13 +3,24 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import AddIcon from '@material-ui/icons/Add';
 
+/**
+ * @method sample
+ * @param {Array} array
+ * @return {String} takes an array of strings (words) and returns a random element, the random element being a string.
+ */
 const sample = (array) => array[Math.floor(Math.random() * array.length)];
 
+/**
+ * @method getRandomInt
+ * @param {Number} min minimum number
+ * @param {Number} max maximum number
+ * @return {Number} takes min and max and returns a number between min and max (add +1 so it's inclusive)
+ */
 const getRandomInt = (min, max) => {
   min = Math.ceil(min);
   max = Math.floor(max);
 
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
 export default function Home({
