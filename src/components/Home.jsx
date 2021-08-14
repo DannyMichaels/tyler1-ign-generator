@@ -12,9 +12,9 @@ const sample = (array) => array[Math.floor(Math.random() * array.length)];
 
 /**
  * @method getRandomInt
- * @param {Number} min minimum number
- * @param {Number} max maximum number
- * @return {Number} takes min and max and returns a number between min and max (add +1 so it's inclusive)
+ * @param {Number} min, minimum number
+ * @param {Number} max, maximum number
+ * @return {Number} takes min (inclusive) and max and returns a number between min and max (add +1 so max is also inclusive)
  */
 const getRandomInt = (min, max) => {
   min = Math.ceil(min);
