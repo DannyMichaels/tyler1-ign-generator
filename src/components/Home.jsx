@@ -67,7 +67,7 @@ export default function Home({
     setVisitedRandomWords(new Set());
   };
 
-  const tweetText = `I just used Tyler1 IGN Generator and got ${ign}!, try it at https://tyler1-ign-generator.netlify.app/`;
+  const tweetText = `I just used %23Tyler1_IGN_Generator and got ${ign}!, try it out at https://tyler1-ign-generator.netlify.app/.`;
 
   return (
     <>
