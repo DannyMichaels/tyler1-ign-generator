@@ -4,9 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
+import Favicon from 'react-favicon';
 
 ReactDOM.render(
   <React.StrictMode>
+    <Favicon url="https://yt3.ggpht.com/ytc/AAUvwniqCJQn4NNwTok5I9Wm5iveJTLdATVKAdXpzIvwmA=s240-c-k-c0x00ffffff-no-rj" />
     <Router>
       <App />
     </Router>
