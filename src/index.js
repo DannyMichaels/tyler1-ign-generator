@@ -5,10 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Favicon from 'react-favicon';
+import IconSrc from './tyler-favicon.jpg';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Favicon url="https://yt3.ggpht.com/ytc/AAUvwniqCJQn4NNwTok5I9Wm5iveJTLdATVKAdXpzIvwmA=s240-c-k-c0x00ffffff-no-rj" />
+    <Favicon url={IconSrc} />
     <Router>
       <App />
     </Router>
