@@ -87,7 +87,7 @@ function App() {
              style={!showBackground ? { color: 'black' } : {}}
              href="https://github.com/DannyMichaels/tyler1-ign-generator">
              source code
-          </a> /*}
+          </a> */}
 
           <Button
             className="toggle-bg-btn"
