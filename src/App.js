@@ -81,13 +81,13 @@ function App() {
 
       <footer>
         <div className="footer-content">
-//           <a
-//             target="_blank"
-//             rel="noreferrer"
-//             style={!showBackground ? { color: 'black' } : {}}
-//             href="https://github.com/DannyMichaels/tyler1-ign-generator">
-//             source code
-//           </a>
+  {/*    <a
+             target="_blank"
+             rel="noreferrer"
+             style={!showBackground ? { color: 'black' } : {}}
+             href="https://github.com/DannyMichaels/tyler1-ign-generator">
+             source code
+          </a> /*}
 
           <Button
             className="toggle-bg-btn"
